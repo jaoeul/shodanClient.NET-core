@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 namespace Shodan
 {
-	interface IShodanClient
+    interface IShodanClient
 	{
 		// Shodan Search Methods
         Task<object> searchHost(string ip);
@@ -15,12 +15,11 @@ namespace Shodan
 
 		// Shodan On-Demand Scanning
         Task<object> listProtocols();
-        Task<object> scanNetwork();
-        Task<object> scanPortOnWeb();
+        Task<object> scanNetwork(string ips);
+        Task<object> scanPortAndProtocolOnWeb(int port, string protocol);
         Task<object> checkProgress(string id);
 
-		// Shodan Network Alerts
-
-
+		// Account Methods
+		Task<object> getProfile();
 	}
 }
